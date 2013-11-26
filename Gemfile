@@ -16,6 +16,16 @@ group :development do
   gem 'sqlite3'
 end
 
+# User Authentication
+gem 'devise'
+
+
+
+  
+
+
+# Bootstrap-sass Gem
+gem 'bootstrap-sass', '~> 3.0.0.0.rc'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
