@@ -19,6 +19,9 @@ end
 # User Authentication
 gem 'devise'
 
+# Authorization
+gem 'cancan'
+
 
 
   

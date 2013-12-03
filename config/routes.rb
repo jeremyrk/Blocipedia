@@ -1,9 +1,12 @@
 Blocipedia::Application.routes.draw do
   devise_for :users
-  get "welcome/index"
-  get "welcome/about"
 
-  root to: 'welcome#index'
+  resources :wikis
+
+  match "about" => 'welcome#about', via: :get
+
+  root :to => 'welcome#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
