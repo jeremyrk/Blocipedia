@@ -22,6 +22,9 @@ gem 'devise'
 # Authorization
 gem 'cancan'
 
+# Payments
+gem 'stripe-rails'
+
 
 
   
