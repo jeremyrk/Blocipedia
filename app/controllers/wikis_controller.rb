@@ -18,7 +18,8 @@ class WikisController < ApplicationController
   end
 
   def create
-    @wiki = Wiki.new(params[:topic])
+    @wiki = Wiki.new(wiki_params)
+    @wiki.user = current_user
     authorize! :create, @wiki, message: "You need to be signed up to do that."
     if @wiki.save
       flash[:notice] = "Wiki was saved successfully."
@@ -32,12 +33,18 @@ class WikisController < ApplicationController
   def update
     @wiki = Wiki.find(params[:id])
     authorize! :update, @wiki, message: "You need to own the wiki to edit it."
-    if @wiki.update_attributes(params[:wiki])
+    if @wiki.update_attributes(wiki_params)
       flash[:notice] = "Wiki was updated."
       redirect_to @wiki
     else
       flash[:error] = "Error saving wiki. Please try again"
       render :edit
     end
+  end
+
+  private
+
+  def wiki_params
+    params.require(:wiki).permit(:title, :body)
   end
 end

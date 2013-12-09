@@ -3,17 +3,22 @@
 <div class="row">
   <div class="span8">
     <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary btn-mini' %>
-    <% @wikis.each do |wiki| %>
-      <div class="media">
-        <div class="media-body">
-          <h4 class="media-heading">
-            <%= link_to wiki.name, wiki %>
-          </h4>
-          <small>
-            <%= wiki.description %>
-          </small>
-        </div>
-      </div>
-    <% end %>
+  
+   <% @wikis.each do |wiki| %>
+       <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">
+                <%= link_to wiki.title, wiki %>
+              </h4>
+              <small>
+                <%= wiki.body %>
+              </small>
+            </div>
+          </div>
+   <% end %>
   </div>
 </div>
+
+
+
+

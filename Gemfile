@@ -25,6 +25,12 @@ gem 'cancan'
 # Payments
 gem 'stripe-rails'
 
+# Credentials
+gem 'figaro'
+
+# Seeding wikis
+gem 'faker'
+
 
 
   

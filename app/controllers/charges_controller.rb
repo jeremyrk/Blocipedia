@@ -5,7 +5,7 @@ class ChargesController < ApplicationController
 
   def create
     #Amount in cents
-    @amount = 2500
+    @amount = 999
 
     customer = Stripe::Customer.create(
       :email => 'jeremy.rkw@gmail.com',
@@ -15,9 +15,11 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => 'Jeremy\'s client'
+      :description => 'Jeremy\'s client',
       :currency    => 'usd'
     )
+
+    #current_user.update_attribute("premium", true)
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

@@ -5,6 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'faker'
+
+wikis = []
+15.times do
+  wikis << Topic.create(
+    name: Faker::Lorem.words(rand(1..10)).join(" "), 
+    description: Faker::Lorem.paragraph(rand(1..4))
+  )
+end
+
+
 u = User.new(
   name: 'Admin User',
   email: 'admin@example.com', 
